@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Libreria Personale – ReadHub</title>
+<link rel="stylesheet" href="/css/libreria.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap"
+	rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link href="/css/utente/libreria.css" rel="stylesheet">
+</head>
+<body>
+	<div class="page-wrapper">
+		<header class="header">
+			<div class="nav-container">
+				<div class="logo" data-aos="flip-left" data-aos-delay="1100">📖
+					ReadHub</div>
+				<nav>
+					<a th:href="@{/}" data-aos="fade-up" data-aos-delay="500">Home</a>
+				</nav>
+			</div>
+		</header>
+
+		<main data-aos="fade-up">
+			<h1>La tua Libreria</h1>
+
+			<div class="alert-container">
+				<div th:if="${successMessage}" class="alert success"
+					th:text="${successMessage}"></div>
+				<div th:if="${errorMessage}" class="alert error"
+					th:text="${errorMessage}"></div>
+			</div>
+
+
+			<section class="profile">
+				<h2>📌 Il tuo Profilo</h2>
+				<form method="post" th:action="@{/utente/aggiornaDatiUtente}"
+					th:object="${utente}" class="profile-form">
+					<label>Nome: <input type="text" name="nome"
+						th:field="*{nome}"></label> <label>Cognome: <input
+						type="text" name="cognome" th:field="*{cognome}"></label> <label>Email:
+						<input type="email" name="email" th:field="*{email}">
+					</label> <label>Password: <input type="password" name="password"
+						th:field="*{password}" placeholder="••••••••"></label>
+					<button type="submit" class="cta">Aggiorna Profilo</button>
+				</form>
+			</section>
+
+			<section class="library" data-aos="fade-up" data-aos-delay="200">
+				<h2>📝 Le tue Recensioni</h2>
+
+				<ul class="book-list">
+					<li th:each="recensione : ${recensioni}">
+						<div class="star-rating">
+							<span th:each="i : ${#numbers.sequence(1,5)}"> <span
+								th:text="${i <= recensione.voto} ? '★' : '☆'"></span>
+							</span>
+						</div> <span class="book-title"> <i
+							th:text="*{recensione.libro.titolo}"></i>
+					</span>
+						<p class="review-content" th:text="*{recensione.testo}"></p>
+					</li>
+				</ul>
+
+			</section>
+		</main>
+
+		<footer>
+			<p>© 2025 ReadHub — La tua libreria, il tuo mondo.</p>
+		</footer>
+	</div>
+
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+</body>
+</html>

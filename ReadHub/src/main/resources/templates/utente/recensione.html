@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Scrivi una Recensione</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="/css/utente/recensione.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap"
+	rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+	<header class="header">
+		<div class="nav-container">
+			<div class="logo" data-aos="flip-left" data-aos-delay="1100">📖
+				ReadHub</div>
+			<nav>
+				<a th:href="@{/}" data-aos="fade-up" data-aos-delay="500">Home</a>
+			</nav>
+		</div>
+	</header>
+
+	<div class="container" data-aos="flip-left" data-aos-delay="1100">
+		
+		<h1 data-aos="fade-down" data-aos-delay="600">Scrivi una
+			Recensione</h1>
+
+
+		<form th:action="@{/utente/recensione(libroId=${libro.idLibro})}"
+			method="post" th:object="${recensioneDTO}">
+			<div class="card-hover">
+				<div class="card-body">
+					<h2 class="card-title" th:text="${libro.titolo}"
+						data-aos="fade-right" data-aos-delay="700">Titolo Placeholder</h2>
+					<span th:each="autore, iterStat : ${libro.autori}"> <span
+						th:text="${autore.nome + ' ' + autore.cognome}"></span> <span
+						th:if="${!iterStat.last}">, </span>
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="titolo" data-aos="fade-left" data-aos-delay="800">Titolo
+					Recensione</label>
+				<p th:if="${#fields.hasErrors('titolo')}"
+					th:errorclass="text-danger" th:errors="*{titolo}"
+					data-aos="fade-up" data-aos-delay="500"></p>
+				<input type="text" id="titolo" th:field="*{titolo}"
+					placeholder="Inserisci il titolo della recensione" />
+			</div>
+
+			<div class="form-group">
+				<label data-aos="fade-right" data-aos-delay="900">Voto:</label>
+				<div class="star-rating">
+					<input type="radio" id="star5" th:field="*{voto}" value="5"
+						required /> <label for="star5">★</label> <input type="radio"
+						id="star4" th:field="*{voto}" value="4" /> <label for="star4">★</label>
+
+					<input type="radio" id="star3" th:field="*{voto}" value="3" /> <label
+						for="star3">★</label> <input type="radio" id="star2"
+						th:field="*{voto}" value="2" /> <label for="star2">★</label> <input
+						type="radio" id="star1" th:field="*{voto}" value="1" /> <label
+						for="star1">★</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="titolo" data-aos="fade-left" data-aos-delay="1000">Testo
+					della Recensione</label>
+				<p th:if="${#fields.hasErrors('testo')}" th:errorclass="text-danger"
+					th:errors="*{testo}" data-aos="fade-up" data-aos-delay="500"></p>
+				<input type="text" id="testo" th:field="*{testo}"
+					placeholder="Inserisci il testo della recensione" />
+			</div>
+
+			<button type="submit" class="cta-button">Invia Recensione</button>
+		</form>
+	</div>
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+</body>
+</html>

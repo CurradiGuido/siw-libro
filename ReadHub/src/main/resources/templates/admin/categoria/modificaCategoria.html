@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Modifica Categoria</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="/css/admin/categoria/modificaCategoria.css">
+</head>
+<body class="admin-dashboard">
+
+	<header>
+		<h1 class="logo">Modifica Categoria</h1>
+		<a class="btn-signing" th:href="@{/utente/admin/home}">Home</a>
+	</header>
+
+	<!-- Form Modifica Categoria -->
+	<div class="form-container" data-aos="flip-right"
+		data-aos-duration="4000">
+		<h2 data-aos="fade-right" data-aos-duration="1500">Modifica
+			categoria</h2>
+
+		<form enctype="multipart/form-data" method="post"
+			th:action="@{/admin/categoria/modificaCategoria(id=${categoria.idCategoria})}"
+			th:object="${categoriaDTO}">
+
+			<label for="nome" data-aos="fade-right" data-aos-duration="2000">Nome
+				categoria</label> <input type="text" id="nome" name="nome"
+				th:field="*{nome}" placeholder="Es. Accessori Gaming"
+				data-aos="fade-up-right" data-aos-duration="3000">
+			<p th:if="${#fields.hasErrors('nome')}"
+				th:classappend="${#fields.hasErrors('nome')} ? 'text-danger' : ''"
+				th:errorclass="text-danger" th:errors="*{nome}"></p>
+
+			<label for="descrizione" data-aos="fade-right"
+				data-aos-duration="2000">Descrizione</label> <input type="text"
+				id="descrizione" name="descrizione" th:field="*{descrizione}"
+				placeholder="Inserisci una descrizione..." data-aos="fade-up-right"
+				data-aos-duration="3000">
+			<p th:if="${#fields.hasErrors('descrizione')}"
+				th:classappend="${#fields.hasErrors('descrizione')} ? 'text-danger' : ''"
+				th:errorclass="text-danger" th:errors="*{descrizione}"></p>
+
+			<label for="image" data-aos="fade-right" data-aos-duration="2000">Cambia
+				immagine</label> <input class="form-control" type="file" id="image"
+				th:field="*{image}" data-aos="fade-up-right"
+				data-aos-duration="3000">
+			<div class="form-text">Carica una nuova immagine (opzionale).
+				Formati supportati: .jpg, .png.</div>
+			<p th:if="${#fields.hasErrors('image')}" th:errorclass="text-danger"
+				th:classappend="${#fields.hasErrors('image')} ? 'text-danger' : ''"
+				th:errors="*{image}"></p>
+
+			<!-- Pulsanti -->
+			<div class="d-flex justify-content-between">
+				<a th:href="@{/admin/categoria/visualizzaCategorie}"
+					class="btn btn-secondary rounded-pill">Annulla</a>
+				<button type="submit" class="btn btn-primary rounded-pill">Salva
+					modifiche</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

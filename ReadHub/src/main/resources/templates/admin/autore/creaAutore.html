@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Crea Nuovo Autore</title>
+<link rel="stylesheet" href="/css/admin/autore/creaAutore.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="admin-dashboard">
+
+	<header>
+		<h1 class="logo">Crea Nuovo Autore</h1>
+		<a class="btn-signing" th:href="@{/admin/autore/visualizzaAutori}">Home</a>
+	</header>
+
+	<div class="form-container">
+		<form th:action="@{/admin/autore/creaAutore}" th:object="${autoreDTO}"
+			method="post" enctype="multipart/form-data">
+
+			<div class="form-group">
+				<label for="nome">Nome Autore</label>
+				<p th:if="${#fields.hasErrors('nome')}" th:errorclass="text-danger"
+					th:errors="${autoreDTO.nome}" data-aos="fade-up"
+					data-aos-delay="500"></p>
+				<input type="text" id="nome" th:field="*{nome}"
+					placeholder="Inserisci il nome" />
+			</div>
+
+			<div class="form-group">
+				<label for="cognome"> Cognome Autore</label>
+				<p th:if="${#fields.hasErrors('cognome')}"
+					th:errorclass="text-danger" th:errors="${autoreDTO.cognome}"
+					data-aos="fade-up" data-aos-delay="500"></p>
+				<textarea id="cognome" th:field="*{cognome}"
+					placeholder="Inserisci il cognome dell'autore" rows="4"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="dataNascita">Data di nascita</label>
+				<p th:if="${#fields.hasErrors('dataDiNascita')}"
+					th:errorclass="text-danger" th:errors="${autoreDTO.dataDiNascita}"
+					data-aos="fade-up" data-aos-delay="500"></p>
+				<input type="date" id="dataDiNascita" th:field="*{dataDiNascita}"
+					placeholder="Inserisci la data di nascita dell'autore" />
+			</div>
+
+			<div class="form-group">
+				<label for="dataMorte">Data di scomparsa</label>
+				<p th:if="${#fields.hasErrors('dataDiMorte')}"
+					th:errorclass="text-danger" th:errors="${autoreDTO.dataDiMorte}"
+					data-aos="fade-up" data-aos-delay="500"></p>
+				<input type="date" id="dataDiMorte" th:field="*{dataDiMorte}"
+					placeholder="Inserisci la data di scomparsa (se applicabile)" />
+			</div>
+			
+			<div class="form-group">
+				<label for="nazionalità"> nazionalità</label>
+				<p th:if="${#fields.hasErrors('nazionalità')}"
+					th:errorclass="text-danger" th:errors="${autoreDTO.nazionalità}"
+					data-aos="fade-up" data-aos-delay="500"></p>
+				<textarea id="nazionalità" th:field="*{nazionalità}"
+					placeholder="Inserisci le origini dell'autore" rows="4"></textarea>
+			</div>
+			
+			<div class="form-group">
+				<label for="informazioniAutore"> Informazioni Autore</label>
+				<p th:if="${#fields.hasErrors('informazioniAutore')}"
+					th:errorclass="text-danger" th:errors="${autoreDTO.informazioniAutore}"
+					data-aos="fade-up" data-aos-delay="500"></p>
+				<textarea id="informazioniAutore" th:field="*{informazioniAutore}"
+					placeholder="Inserisci una breve descrizione sulla vita dell'autore" rows="4"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="image">Immagine</label>
+				<p th:if="${#fields.hasErrors('image')}" th:errorclass="text-danger"
+					th:errors="${autoreDTO.image}" data-aos="fade-up"
+					data-aos-delay="500"></p>
+				<input class="form-control" type="file" id="image"
+					th:field="${autoreDTO.image}" data-aos="fade-left"
+					data-aos-delay="400">
+				<div class="form-text" data-aos="fade-up" data-aos-delay="500">
+					Seleziona un'immagine per rappresentare l'autore (formati
+					supportati: .jpg, .png).</div>
+			</div>
+
+			<button type="submit" class="submit-btn">
+				<i class="fas fa-save"></i> Crea Autore
+			</button>
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gestione Autori</title>
+
+<!-- Font elegante da Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+	rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- AOS Animations -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/admin/autore/areaAutore.css">
+</head>
+
+<body>
+
+	<header data-aos="fade-down" data-aos-duration="1000">
+		<h1 class="logo">Gestione Autore</h1>
+		<a class="btn-signing" th:href="@{/utente/admin/home}">Torna alla
+			Home</a>
+	</header>
+
+	<div class="page-content">
+		<div class="alert-container">
+			<div th:if="${successMessage}" class="alert success"
+				th:text="${successMessage}"></div>
+			<div th:if="${errorMessage}" class="alert error"
+				th:text="${errorMessage}"></div>
+		</div>
+
+		<table data-aos="fade-up" data-aos-duration="1000">
+			<thead>
+				<tr>
+					<th>ID Autore</th>
+					<th>Nome</th>
+					<th>Cognome</th>
+					<th>Data di Nascita</th>
+					<th>Scomparsa</th>
+					<th>Nazionalità</th>
+					<th>Ritratto</th>
+					<th>Libri Associati</th>
+					<th>Azioni</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="autore : ${autori}" data-aos="fade-up"
+					data-aos-delay="100">
+					<td th:text="${autore.idAutore}"></td>
+					<td th:text="${autore.nome}"></td>
+					<td th:text="${autore.cognome}"></td>
+					<td th:text="${autore.dataDiNascita}"></td>
+					<td th:text="${autore.dataDiMorte != null ? autore.dataDiMorte : 'ancora in vita'}"></td>
+					<td th:text="${autore.nazionalità}"></td>
+					<td th:text="${autore.image}"></td>
+					<td th:text="${#lists.size(autore.libri)}"></td>
+					<td>
+						<div class="actions">
+							<a th:href="@{/admin/autore/editAutore(id=${autore.idAutore})}"
+								class="btn btn-edit"> <i class="fas fa-edit"></i> Modifica
+							</a> <a
+								th:href="@{/admin/autore/deleteAutore(id=${autore.idAutore})}"
+								class="btn btn-delete"> <i class="fas fa-trash"></i> Elimina
+							</a>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="top-bar fixed-new-button" data-aos="fade-right"
+			data-aos-delay="300">
+			<a class="btn-new-category" th:href="@{/admin/autore/creaAutore}">
+				<i class="fas fa-plus"></i> Nuovo Autore
+			</a>
+		</div>
+	</div>
+
+	<!-- AOS -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			once : true,
+			easing : 'ease-in-out',
+			duration : 800,
+		});
+	</script>
+
+</body>
+</html>

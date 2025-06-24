@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Recensioni - [[${libro.titolo}]]</title>
+<link rel="stylesheet" href="/css/utente/visualizzaRecensioni.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap"
+	rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+	<!-- Header -->
+	<header class="header">
+		<div class="nav-container">
+			<div class="logo" data-aos="flip-left" data-aos-delay="1100">📖 ReadHub</div>
+			<nav>
+				<a href="/" data-aos="fade-up" data-aos-delay="500">Home</a> 
+			</nav>
+		</div>
+	</header>
+
+	<!-- Main -->
+	<main class="forum-main">
+		<h1 data-aos="fade-down" data-aos-delay="500">
+			Recensioni per: <span th:text="${libro.titolo}">Titolo Libro</span>
+		</h1>
+		<p class="intro" data-aos="fade-right" data-aos-delay="600">Scopri cosa ne pensa la community di questo
+			libro.</p>
+
+		<!-- Sezione Ordinamento -->
+		<form method="get" class="sorting-form" data-aos="fade-left" data-aos-delay="700">
+			<label for="sort">Ordina per:</label> <select name="sort" id="sort"
+				onchange="this.form.submit()">
+				<option value="data" th:selected="${param.sort == 'data'}">Data
+					(più recenti)</option>
+				<option value="voto" th:selected="${param.sort == 'voto'}">Voto
+					(più alti)</option>
+			</select>
+		</form>
+
+		<!-- Lista recensioni -->
+		<div class="thread" th:each="recensione : ${recensioni}" data-aos="flip-left" data-aos-delay="800">
+			<!-- Stelline sopra il titolo -->
+			<div class="star-rating top">
+				<span th:each="i : ${#numbers.sequence(1, 5)}"
+					th:classappend="${i <= recensione.voto} ? '' : 'empty'">★</span>
+			</div>
+
+			<!-- Titolo recensione -->
+			<h3 class="review-title" th:text="${recensione.titolo}">Titolo
+				della recensione</h3>
+
+			<!-- Testo recensione -->
+			<p th:text="${recensione.testo}">Questa è una recensione del
+				libro molto interessante e ben scritta...</p>
+
+			<!-- Meta info -->
+			<div class="meta">
+				Scritta da <strong th:text="${recensione.utente.username}">utente123</strong>
+				in data <strong th:text="${recensione.data}"></strong>
+				<!--, il <span th:text="${#dates.format(recensione.data, 'dd/MM/yyyy')}">21/06/2025</span>-->
+			</div>
+		</div>
+
+	</main>
+
+	<!-- Footer -->
+	<footer> © 2025 BookVerse. Tutti i diritti riservati. </footer>
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+</body>
+</html>

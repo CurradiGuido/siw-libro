@@ -1,0 +1,32 @@
+2025-06-23 15:48:08 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication - Starting SiwLibroApplication using Java 24.0.1 with PID 25456 (C:\Users\guido\Desktop\Siw-Libro\ReadHub\target\classes started by guido in C:\Users\guido\Desktop\Siw-Libro\ReadHub)
+2025-06-23 15:48:08 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-23 15:48:13 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication - Started SiwLibroApplication in 5.24 seconds (process running for 5.667)
+2025-06-23 16:03:02 INFO  [http-nio-8080-exec-10] i.u.s.controller.UtenteController - E' stata rilevata una nuova registrazione: Username = gui98
+2025-06-23 16:06:14 INFO  [http-nio-8080-exec-6] i.u.s.controller.CategoriaController - Categoria: Narrativa Fantasy creata da admin: gui98
+2025-06-23 16:09:12 INFO  [http-nio-8080-exec-2] i.u.s.controller.AutoreController - Autore: Neil Richard MacKinnon Gaiman creato da admin: gui98
+2025-06-23 16:11:47 INFO  [http-nio-8080-exec-4] i.u.s.controller.AutoreController - Autore: Terry Pratchett creato da admin: gui98
+2025-06-23 16:14:35 INFO  [http-nio-8080-exec-10] i.u.s.controller.AutoreController - Autore: Ursula Kroeber Le Guin creato da admin: gui98
+2025-06-23 16:17:11 INFO  [http-nio-8080-exec-7] i.u.s.controller.AutoreController - Autore: Brandon Sanderson creato da admin: gui98
+2025-06-23 16:19:42 INFO  [http-nio-8080-exec-9] i.u.s.controller.LibroController - Libro: American Gods creato da admin: gui98
+2025-06-23 16:21:20 INFO  [http-nio-8080-exec-5] i.u.s.controller.LibroController - Libro: Good Omens creato da admin: gui98
+2025-06-23 16:22:58 INFO  [http-nio-8080-exec-2] i.u.s.controller.LibroController - Libro: A Wizard of Earthsea creato da admin: gui98
+2025-06-23 16:25:33 INFO  [http-nio-8080-exec-4] i.u.s.controller.LibroController - Libro: Mistborn: The Final Empire creato da admin: gui98
+2025-06-23 16:25:43 INFO  [http-nio-8080-exec-3] i.u.s.h.CustomLogoutSuccessHandler - Logout avvenuto con successo per l'utente: gui98
+2025-06-23 16:26:10 INFO  [http-nio-8080-exec-6] i.u.s.controller.UtenteController - E' stata rilevata una nuova registrazione: Username = Leo98
+2025-06-23 16:31:37 INFO  [http-nio-8080-exec-10] i.u.s.h.CustomLogoutSuccessHandler - Logout avvenuto con successo per l'utente: Leo98
+2025-06-23 16:34:00 INFO  [http-nio-8080-exec-8] i.u.s.controller.CategoriaController - Categoria: Saggistica Storica creata da admin: gui98
+2025-06-23 16:38:23 INFO  [http-nio-8080-exec-9] i.u.s.controller.AutoreController - Autore: Yuval Noah Harari creato da admin: gui98
+2025-06-23 16:42:42 INFO  [http-nio-8080-exec-3] i.u.s.controller.AutoreController - Autore: Doris Kearns Goodwin creato da admin: gui98
+2025-06-23 16:45:58 INFO  [http-nio-8080-exec-2] i.u.s.controller.AutoreController - Autore: Mary Beard creato da admin: gui98
+2025-06-23 16:49:15 INFO  [http-nio-8080-exec-1] i.u.s.controller.AutoreController - Autore: Ian  Kershaw creato da admin: gui98
+2025-06-23 16:53:14 INFO  [http-nio-8080-exec-7] i.u.s.controller.LibroController - Libro: Sapiens: A Brief History of Humankind creato da admin: gui98
+2025-06-23 16:56:51 INFO  [http-nio-8080-exec-10] i.u.s.controller.LibroController - Libro: Leadership in Turbulent Times creato da admin: gui98
+2025-06-23 16:59:08 INFO  [http-nio-8080-exec-9] i.u.s.controller.LibroController - Libro: SPQR: A History of Ancient Rome creato da admin: gui98
+2025-06-23 17:00:18 INFO  [http-nio-8080-exec-9] i.u.s.controller.LibroController - Libro: Hitler: A Biography creato da admin: gui98
+2025-06-23 17:08:10 INFO  [http-nio-8080-exec-10] i.u.s.controller.LibroController - Libro: The Age of Empire creato da admin: gui98
+2025-06-23 17:08:20 INFO  [http-nio-8080-exec-5] i.u.s.controller.LibroController - Libro: The Age of Empire modificato da admin: gui98
+2025-06-23 17:08:31 INFO  [http-nio-8080-exec-10] i.u.s.h.CustomLogoutSuccessHandler - Logout avvenuto con successo per l'utente: gui98
+2025-06-23 17:09:29 INFO  [http-nio-8080-exec-4] i.u.s.h.CustomLogoutSuccessHandler - Logout avvenuto con successo per l'utente: Leo98
+2025-06-23 17:09:50 INFO  [http-nio-8080-exec-6] i.u.s.controller.LibroController - Libro: The Age of Empire modificato da admin: gui98
+2025-06-23 17:09:56 INFO  [http-nio-8080-exec-2] i.u.s.h.CustomLogoutSuccessHandler - Logout avvenuto con successo per l'utente: gui98
+2025-06-23 17:20:08 INFO  [http-nio-8080-exec-3] i.u.s.h.CustomLogoutSuccessHandler - Logout avvenuto con successo per l'utente: Leo98

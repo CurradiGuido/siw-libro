@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap');
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fdfaf6;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Navbar */
+.header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 2rem;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #5e2d18;
+}
+
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #b85c38;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Titolo principale */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #4b2e24;
+}
+
+/* Titolo categoria */
+.category-title {
+  border-left: 4px solid #b85c38;
+  padding-left: 1rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  color: #7b3f00;
+  font-weight: 600;
+}
+
+/* Griglia delle card */
+.row.g-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card-hover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #333;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  text-align: center;
+  pointer-events: none; /* 👈 BLOCCA eventi (click, hover, etc.) */
+  z-index: 2;
+}
+
+.card-hover:hover .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Immagine */
+.card-hover img.card-img-top {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Corpo card */
+.card-body {
+  padding: 1rem 1.2rem;
+  flex-grow: 1;
+  position: relative;
+  z-index: 3; /* 👈 Più alto dell’overlay */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #b85c38;
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Overlay con introduzione */
+.overlay h6 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #7b3f00;
+}
+
+.overlay p {
+  font-size: 1rem;
+  color: #4b2e24;
+}
+
+/* Pulsante */
+.cta-button {
+  margin-top: 1rem;
+  align-self: flex-start;
+  display: inline-block;
+  background-color: #b85c38;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 4;
+}
+
+.cta-button:hover {
+  background-color: #8e3e21;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-container nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .card-hover {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .card-body {
+    text-align: center;
+  }
+
+  .cta-button {
+    display: inline-block;
+    margin-top: 10px;
+  }
+}
+

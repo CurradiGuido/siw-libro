@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard Admin - ReadHub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/admin/adminHome.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+	<header data-aos="fade-down" data-aos-duration="1000">
+		<div class="nav-container" data-aos="flip-left"
+			data-aos-duration="2000">
+			<div class="logo">ReadHub Admin</div>
+			<nav>
+				<a th:href="@{/logout}" data-aos="fade-down"
+					data-aos-duration="3000">Logout</a>
+			</nav>
+		</div>
+	</header>
+
+	<section class="hero">
+		<h1 data-aos="flip-up">Area di Amministrazione</h1>
+		<p data-aos="flip-up">Gestisci libri, categorie, autori e
+			recensioni.</p>
+	</section>
+
+	<section class="section-grid">
+		<div class="card" data-aos="fade-up"
+			data-aos-anchor-placement="bottom-bottom">
+			<h3>📚 Gestione Libri</h3>
+			<a th:href="@{/admin/libro/visualizzaLibri}">Vai alla gestione</a>
+		</div>
+		<div class="card" data-aos="fade-up"
+			data-aos-anchor-placement="bottom-bottom">
+			<h3>📁 Categorie</h3>
+			<a th:href="@{/admin/categoria/visualizzaCategorie}">Gestisci
+				categorie</a>
+		</div>
+		<div class="card" data-aos="fade-up"
+			data-aos-anchor-placement="bottom-bottom">
+			<h3>👤 Autori</h3>
+			<a th:href="@{/admin/autore/visualizzaAutori}">Gestisci autori</a>
+		</div>
+		<div class="card" data-aos="fade-up"
+			data-aos-anchor-placement="bottom-bottom">
+			<h3>📝 Recensioni</h3>
+			<a th:href="@{/admin/recensione/visualizzaRecensioni}">Modera
+				recensioni</a>
+		</div>
+	</section>
+
+	<footer>© 2025 ComicVerse — Area Amministrazione</footer>
+
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>

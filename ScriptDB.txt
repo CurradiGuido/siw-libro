@@ -1,0 +1,98 @@
+CREATE TABLE Utenti(
+	idUtente int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	nome varchar(50) NOT NULL,
+	cognome varchar(50) NOT NULL,
+	email varchar(50) NOT NULL,
+	username varchar(50) NOT NULL,
+	pswd varchar(255) NOT NULL,
+	fotoProfilo varchar(255),
+	ruolo varchar(7) NOT NULL
+);
+
+CREATE TABLE Categorie(
+	idCategoria int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	nome varchar(50) NOT NULL
+	descrizione varchar(50) NOT NULL,
+	fotoIllustrativa varchar (255) NOT NULL
+);
+
+CREATE TABLE Autori(
+	idAutore int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	nome varchar(50) NOT NULL,
+	cognome varchar(50) NOT NULL,
+	nascita date NOT NULL,
+	scomparsa date,
+	origini varchar(50) NOT NULL,
+	fotografia varchar(255) NOT NULL,
+	informazioniAutore varchar(10000) NOT NULL,
+);
+
+CREATE TABLE Libri(
+	idLibro int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	idCategoria int NOT NULL,
+	titolo varchar(50) NOT NULL,
+	pubblicazione int,
+	introduzione varchar(10000) NOT NULL,
+	copertina varchar(255) NOT NULL,
+	CONSTRAINT fk_libro_categoria
+		FOREIGN KEY(idCategoria)
+		REFERENCES Categoria(idCategoria)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+);
+
+CREATE TABLE Recensioni(
+	idRecensione int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	idUtente int NOT NULL,
+	idLibro int NOT NULL,
+	intestazione varchar(20) NOT NULL,
+	valutazione int NOT NULL,
+	commento varchar(255) NOT NULL,
+	data date NOT NULL,
+	CONSTRAINT fk_recensione_utente
+		FOREIGN KEY(idUtente)
+		REFERENCES Utente(idUtente)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT fk_recensione_libro
+		FOREIGN KEY(idLibro)
+		REFERENCES Libro(idLibro)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE	
+);
+
+CREATE TABLE Libro_Autore(
+	idLibro int NOT NULL,
+	idAutore int NOT NULL,
+	PRIMARY KEY(idLibro, idAutore),
+	FOREIGN KEY(idLibro) REFERENCES Libro(idLibro)
+		ON DELETE CASCADE 
+		ON UPDATE CASCADE,
+	FOREIGN KEY(idAutore) REFERENCES Autore(idAutore)
+		ON DELETE RESTRICT
+		ON UPDATE CASCADE
+);
+
+
+INSERT INTO Categoria(nome, genere, fotoIllustrativa)
+VALUES('prova', 'provaGenere', 'fotoProva')
+
+-- Inserisco un libro
+INSERT INTO Libro (idCategoria, copertina, titolo, annoDiPubblicazione)
+VALUES (1, 'copertina1.jpg', 'Algoritmi Moderni', 2021);
+
+-- Inserisco due autori
+INSERT INTO Autore (nome, cognome, nascita, scomparsa, origini, fotografia)
+VALUES ('Mario', 'Rossi', '03-03-93', '03-04-21', 'Europee', 'FotoProva');
+INSERT INTO Autore (nome, cognome, nascita, scomparsa, origini, fotografia)
+VALUES ('Luca', 'Verdi', '13-05-99', '12-12-27', 'Indiane', 'Foto');
+
+-- Associo entrambi gli autori al libro
+INSERT INTO Libro_Autore (idLibro, idAutore) VALUES (3, 1);
+INSERT INTO Libro_Autore (idLibro, idAutore) VALUES (3, 2);
+
+-- Query di Prova per la correttezza delle associazioni -- 
+SELECT a.nome, a.cognome
+FROM Autore a
+JOIN Libro_Autore la ON a.idAutore = la.idAutore
+WHERE la.idLibro = 3;

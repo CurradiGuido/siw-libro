@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+<head>
+<meta charset="UTF-8">
+<title
+	th:text="'Dettagli autore - ' + ${autore.nome} + ' ' + ${autore.cognome}">Dettagli
+	autore</title>
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/css/utente/dettagliAutore.css" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap"
+	rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+	<div class="page-wrapper">
+		<header>
+			<div class="nav-container">
+				<div class="logo" data-aos="flip-left" data-aos-delay="1100"> 📖 ReadHub</div>
+				<nav>
+					<a th:href="@{/}" data-aos="fade-up"
+						data-aos-delay="500">Home</a>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Hero section -->
+		<section class="hero">
+			<img th:src="@{'/images/autori/' + ${autore.image}}"
+				alt="Foto di [[${autore.nome}]]" class="autore-img" data-aos="flip-right" data-aos-delay="500"/>
+			<h1 th:text="${autore.nome + ' ' + autore.cognome}" data-aos="flip-up" data-aos-delay="600">Nome Cognome</h1>
+			<p>
+				<span th:text="${autore.dataDiNascita}" data-aos="zoom-in-up" data-aos-delay="700">01/01/1900</span> – <span
+					th:if="${autore.dataDiMorte != null}"
+					th:text="${autore.dataDiMorte}" data-aos="zoom-in-up" data-aos-delay="800">01/01/2000</span> <span
+					th:if="${autore.dataDiMorte == null}">oggi</span>, <span
+					th:text="${autore.nazionalità}" data-aos="zoom-in-down" data-aos-delay="900">Nazionalità</span>
+			</p>
+		</section>
+
+		<!-- Biografia -->
+		<section class="biografia" data-aos="zoom-out" data-aos-delay="1000">
+			<h2 data-aos="flip-left" data-aos-delay="1100">Biografia</h2>
+			<div class="bio-text">
+				<p th:text="${autore.informazioniAutore}"></p>
+			</div>
+		</section>
+
+		<!-- Libri dell'autore -->
+		<section class="libri">
+		  <div class="lista-libri" data-aos="flip-left" data-aos-delay="1500">
+			<div class="libro" th:each="libro : ${autore.libri}">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide" th:each="img : ${libro.immagini}">
+							<img th:src="@{'/images/libri/' + ${img}}" alt="Immagine libro"
+								 data-aos="fade-left" data-aos-delay="1200">
+						</div>
+					</div>
+					<!-- Paginazione / frecce -->
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<div>
+				<h3 class="titolo-libro" th:text="${libro.titolo}" data-aos="fade-right" data-aos-delay="1300">Titolo del libro</h3>
+				<p class="descrizione-libro" th:text="${#strings.abbreviate(libro.introduzione, 300)}" data-aos="fade-right" data-aos-delay="1400">Breve descrizione del
+					libro...</p>
+				<a class="scopri-btn" th:href="@{/libro/{id}(id=${libro.idLibro})}">Scopri
+					di più</a>
+			</div>
+			</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer> &copy; 2025 ReadHub. Tutti i diritti riservati. </footer>
+	</div>
+
+	<!-- Swiper JS -->
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script>
+    document.querySelectorAll('.swiper-container').forEach((container) => {
+        new Swiper(container, {
+            loop: true,
+            pagination: {
+                el: container.querySelector('.swiper-pagination'),
+                clickable: true,
+            },
+            navigation: {
+                nextEl: container.querySelector('.swiper-button-next'),
+                prevEl: container.querySelector('.swiper-button-prev'),
+            },
+        });
+    });
+    
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			once : true,
+			duration : 800,
+			offset : 120
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ReadHub – Community Letteraria</title>
+<link rel="stylesheet" href="/css/home.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap"
+	rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+	<div class="page-wrapper">
+		<!-- Navbar -->
+		<header>
+			<div class="nav-container">
+				<div class="logo" data-aos="flip-left" data-aos-delay="1100">📖
+					ReadHub</div>
+				<nav>
+					<a th:href="@{/utente/ultimeUscite}" data-aos="fade-up"
+						data-aos-delay="500">Catalogo</a> <a th:href="@{/utente/forum}"
+						data-aos="fade-up" data-aos-delay="600"
+						sec:authorize="hasAuthority('USER')">Discussioni</a> <a
+						th:href="@{/utente/eventi}" data-aos="fade-up"
+						data-aos-delay="700" sec:authorize="hasAuthority('USER')">Eventi</a>
+					<a th:href="@{/utente/contatti}" data-aos="fade-up"
+						data-aos-delay="800">Contatti</a> <a
+						th:if="${not #authorization.expression('isAuthenticated()')}"
+						th:href="@{/login}" data-aos="fade-up" data-aos-delay="900">Accedi</a>
+					<a th:if="${#authorization.expression('isAuthenticated()')}"
+						th:href="@{/logout}" data-aos="fade-up" data-aos-delay="1000">Logout</a>
+				</nav>
+			</div>
+		</header>
+
+		
+		<div class="alert-container">
+			<div th:if="${logout}" class="alert success" data-aos="fade-down"
+				data-aos-duration="1500">
+				<strong>Logout effettuato con successo!</strong>
+			</div>
+		</div>
+		<!-- Hero -->
+		<section class="hero" data-aos="fade-up">
+			<div class="hero-text">
+				<h1 th:if="${not #authorization.expression('isAuthenticated()')}">Benvenuto
+					in ReadHub</h1>
+				<h1 th:if="${#authorization.expression('isAuthenticated()')}"
+					th:text="'Benvenuto, ' + ${#authentication.name} + '!'"></h1>
+				<p th:if="${not #authorization.expression('isAuthenticated()')}">
+					Una community dedicata a chi ama leggere, scrivere, condividere.
+					Esplora il mondo dei libri insieme a migliaia di lettori come te.</p>
+				<p th:if="${#authorization.expression('isAuthenticated()')}">
+					Immergiti nel mondo letterario, scopri le ultime novità e, mi
+					raccomando, lascia una recensione</p>
+				<a class="cta" th:href="@{/utente/register}"
+					th:if="${not #authorization.expression('isAuthenticated()')}">Unisciti
+					ora</a>
+			</div>
+		</section>
+
+		<!-- Sezioni -->
+		<section class="features" data-aos="fade-up" data-aos-delay="200">
+			<div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+				<h3>🆕 Novità Editoriali</h3>
+				<p>Scopri le ultime uscite e i trend letterari del momento, dai
+					romanzi ai saggi più amati.</p>
+				<a th:href="@{/utente/ultimeUscite}" class="text-link">Approfondisci</a>
+			</div>
+			<div class="feature-card" sec:authorize="hasAuthority('USER')">
+				<h3>💬 Forum Letterario</h3>
+				<p>Confrontati con altri lettori, partecipa a discussioni e
+					recensioni di ogni genere.</p>
+				<a th:href="@{/utente/forum}" class="text-link">Dai un'occhiata</a>
+			</div>
+			<div class="feature-card" sec:authorize="hasAuthority('USER')">
+				<h3>📚 La tua Libreria</h3>
+				<p>Gestisci la tua collezione di libri, wishlist e letture in
+					corso in un unico spazio personale.</p>
+				<a th:href="@{/utente/libreria}" class="text-link">Accedi al tuo
+					profilo</a>
+			</div>
+			<div class="feature-card" sec:authorize="hasAuthority('USER')">
+				<h3>🗓️ Eventi e Club</h3>
+				<p>Partecipa a gruppi di lettura, eventi online e incontri con
+					autori.</p>
+				<a th:href="@{/utente/eventi}" class="text-link"> Unisciti a noi</a>
+			</div>
+
+			<div class="feature-card guest"
+				th:if="${not #authorization.expression('isAuthenticated()')}">
+				<h3>🔐 Accedi al mondo ReadHub</h3>
+				<p>Crea un account gratuito per scoprire tutte le funzionalità e
+					unirti alla community.</p>
+				<a th:href="@{/utente/register}" class="cta-secondary">Registrati</a>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<p>© 2025 ReadHub — Condividi storie, emozioni e idee.</p>
+		</footer>
+	</div>
+
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			once : true,
+			duration : 800,
+			offset : 120
+		});
+	</script>
+</body>
+</html>

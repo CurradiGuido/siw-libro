@@ -1,0 +1,88 @@
+2025-06-23 14:49:48 INFO  [http-nio-8080-exec-2] i.u.s.controller.UtenteController - L'utente: Leo98 ha appena aggiornato i suoi dati personali
+2025-06-23 15:08:54 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication - Starting SiwLibroApplication using Java 24.0.1 with PID 9700 (C:\Users\guido\Desktop\Siw-Libro\ReadHub\target\classes started by guido in C:\Users\guido\Desktop\Siw-Libro\ReadHub)
+2025-06-23 15:08:54 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-23 15:08:55 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication - Started SiwLibroApplication in 0.694 seconds (process running for 10816.529)
+2025-06-23 15:09:10 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication -
+				Starting SiwLibroApplication using Java 24.0.1 with PID 9700 (C:\Users\guido\Desktop\Siw-Libro\ReadHub\target\classes started by guido in C:\Users\guido\Desktop\Siw-Libro\ReadHub)
+2025-06-23 15:09:10 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2025-06-23 15:09:10 DEBUG [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry -
+				addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@1b7051b9) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@3c4b2033)
+2025-06-23 15:09:10 DEBUG [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry -
+				addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2cf439bd) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1688b0e7)
+2025-06-23 15:09:10 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication -
+				Started SiwLibroApplication in 0.681 seconds (process running for 10831.962)
+2025-06-23 15:09:23 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL -
+				select u1_0.idcliente,u1_0.cognome,u1_0.email,u1_0.foto_profilo,u1_0.nome,u1_0.pswd,u1_0.username,u1_0.ruolo from utenti u1_0 where u1_0.username=?
+2025-06-23 15:10:30 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication -
+				Starting SiwLibroApplication using Java 24.0.1 with PID 18896 (C:\Users\guido\Desktop\Siw-Libro\ReadHub\target\classes started by guido in C:\Users\guido\Desktop\Siw-Libro\ReadHub)
+2025-06-23 15:10:30 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2025-06-23 15:10:33 DEBUG [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry -
+				addDescriptor(2003, org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@19856865) replaced previous registration(org.hibernate.type.descriptor.sql.internal.ArrayDdlTypeImpl@584fbea1)
+2025-06-23 15:10:33 DEBUG [restartedMain] o.h.t.d.sql.spi.DdlTypeRegistry -
+				addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@380155b4) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@484da23c)
+2025-06-23 15:10:35 INFO  [restartedMain] i.u.siw_libro.SiwLibroApplication -
+				Started SiwLibroApplication in 5.132 seconds (process running for 5.595)
+2025-06-23 15:10:47 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL -
+				select u1_0.idcliente,u1_0.cognome,u1_0.email,u1_0.foto_profilo,u1_0.nome,u1_0.pswd,u1_0.username,u1_0.ruolo from utenti u1_0 where u1_0.username=?
+2025-06-23 15:11:03 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL -
+				select l1_0.idlibro,l1_0.categoria,l1_0.introduzione,l1_0.anno_di_pubblicazione,l1_0.titolo from libri l1_0
+2025-06-23 15:11:03 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL -
+				select c1_0.idcategoria,c1_0.descrizione,c1_0.foto_illustrativa,c1_0.nome from categorie c1_0 where c1_0.nome=?
+2025-06-23 15:11:03 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL -
+				select a1_0.idlibro,a1_1.idautore,a1_1.cognome,a1_1.scomparsa,a1_1.nascita,a1_1.fotografia,a1_1.informazioni_autore,a1_1.origini,a1_1.nome from libro_autore a1_0 join autori a1_1 on a1_1.idautore=a1_0.idautore where a1_0.idlibro=?
+2025-06-23 15:11:03 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL -
+				select i1_0.idlibro,i1_0.nome_immagine from immagini_libro i1_0 where i1_0.idlibro=?
+2025-06-23 15:11:09 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL -
+				select u1_0.idcliente,u1_0.cognome,u1_0.email,u1_0.foto_profilo,u1_0.nome,u1_0.pswd,u1_0.username,u1_0.ruolo from utenti u1_0 where u1_0.username=?
+2025-06-23 15:11:10 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:11:10 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL -
+				select l1_0.idlibro,l1_0.categoria,l1_0.introduzione,l1_0.anno_di_pubblicazione,l1_0.titolo from libri l1_0 where l1_0.titolo=?
+2025-06-23 15:11:10 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL -
+				select c1_0.idcategoria,c1_0.descrizione,c1_0.foto_illustrativa,c1_0.nome from categorie c1_0 where c1_0.nome=?
+2025-06-23 15:11:10 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL -
+				select u1_0.idcliente,u1_0.cognome,u1_0.email,u1_0.foto_profilo,u1_0.nome,u1_0.pswd,u1_0.ruolo,u1_0.username from utenti u1_0 where u1_0.username=?
+2025-06-23 15:11:13 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL -
+				select u1_0.idcliente,u1_0.cognome,u1_0.email,u1_0.foto_profilo,u1_0.nome,u1_0.pswd,u1_0.username,u1_0.ruolo from utenti u1_0 where u1_0.username=?
+2025-06-23 15:11:13 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0 where r1_0.idrecensione=?
+2025-06-23 15:11:13 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL -
+				select l1_0.idlibro,l1_0.categoria,l1_0.introduzione,l1_0.anno_di_pubblicazione,l1_0.titolo from libri l1_0 where l1_0.titolo=?
+2025-06-23 15:11:13 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL -
+				select c1_0.idcategoria,c1_0.descrizione,c1_0.foto_illustrativa,c1_0.nome from categorie c1_0 where c1_0.nome=?
+2025-06-23 15:11:13 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL -
+				select u1_0.idcliente,u1_0.cognome,u1_0.email,u1_0.foto_profilo,u1_0.nome,u1_0.pswd,u1_0.ruolo,u1_0.username from utenti u1_0 where u1_0.username=?
+2025-06-23 15:11:13 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL -
+				select count(*) from recensioni r1_0 where r1_0.idrecensione=?
+2025-06-23 15:11:13 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL -
+				delete from recensioni where idrecensione=?
+2025-06-23 15:11:13 INFO  [http-nio-8080-exec-3] i.u.s.c.RecensioneController -
+				La Recensione dell'utente: Leo98 in merito al libroDune è stata eliminata da admin: gui98
+2025-06-23 15:11:13 DEBUG [http-nio-8080-exec-6] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:11:33 DEBUG [http-nio-8080-exec-7] org.hibernate.SQL -
+				select u1_0.idcliente,u1_0.cognome,u1_0.email,u1_0.foto_profilo,u1_0.nome,u1_0.pswd,u1_0.username,u1_0.ruolo from utenti u1_0 where u1_0.username=?
+2025-06-23 15:11:34 DEBUG [http-nio-8080-exec-9] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:11:44 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL -
+				select u1_0.idcliente,u1_0.cognome,u1_0.email,u1_0.foto_profilo,u1_0.nome,u1_0.pswd,u1_0.username,u1_0.ruolo from utenti u1_0 where u1_0.username=?
+2025-06-23 15:12:08 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:12:21 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:12:23 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:14:37 DEBUG [http-nio-8080-exec-2] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:14:50 DEBUG [http-nio-8080-exec-3] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:14:51 DEBUG [http-nio-8080-exec-4] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:15:06 DEBUG [http-nio-8080-exec-8] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:15:12 DEBUG [http-nio-8080-exec-10] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0
+2025-06-23 15:16:04 DEBUG [http-nio-8080-exec-5] org.hibernate.SQL -
+				select r1_0.idrecensione,r1_0.data,r1_0.nome_libro,r1_0.commento,r1_0.intestazione,r1_0.nome_cliente,r1_0.valutazione from recensioni r1_0

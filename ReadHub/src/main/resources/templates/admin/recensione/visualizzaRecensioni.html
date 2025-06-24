@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gestione Recensioni</title>
+<link rel="stylesheet"
+	href="/css/admin/recensione/visualizzaRecensioni.css">
+</head>
+<body>
+
+	<header class="header">
+		<div class="nav-container">
+			<div class="logo">ReadHub Admin</div>
+			<nav>
+				<a href="/utente/admin/home">Home</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="main-container">
+		<div class="alert-container">
+			<div th:if="${successMessage}" class="alert success"
+				th:text="${successMessage}"></div>
+			<div th:if="${errorMessage}" class="alert error"
+				th:text="${errorMessage}"></div>
+		</div>
+		<h1>Recensioni utenti</h1>
+		<p class="intro">Visualizza ed eventualmente elimina recensioni
+			inappropriate.</p>
+
+		<div class="recensioni-list">
+			<div class="recensione" th:each="recensione : ${recensioni}">
+				<div class="recensione-header">
+					<span class="username" th:text="${recensione.utente.username}">utente</span>
+					ha recensito <strong th:text="${recensione.libro.titolo}">Titolo
+						libro</strong> in data <strong th:text="${recensione.data}"></strong>
+				</div>
+				<div class="stelle">
+					<span th:each="i : ${#numbers.sequence(1, recensione.voto)}"
+						class="star">★</span> <span th:if="${recensione.voto < 5}"
+						th:each="i : ${#numbers.sequence(recensione.voto + 1, 5)}"
+						class="star empty">☆</span>
+				</div>
+				<p th:text="${recensione.testo}">Testo della recensione</p>
+
+				<form
+					th:action="@{/admin/recensione/deleteRecensione(id=${recensione.idRecensione})}"
+					method="post">
+					<button class="elimina-btn" type="submit"
+						onclick="return confirm('Sei sicuro di voler eliminare questa recensione?');">Elimina</button>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<footer> © 2025 BookVerse - Area amministrazione </footer>
+
+</body>
+</html>

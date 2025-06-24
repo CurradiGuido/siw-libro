@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Modifica Autore</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="/css/admin/autore/modificaAutore.css">
+</head>
+<body class="admin-dashboard">
+
+	<header>
+		<h1 class="logo">Modifica Autore</h1>
+		<a class="btn-signing" th:href="@{/admin/autore/visualizzaAutori}">Home</a>
+	</header>
+
+	<!-- Form Modifica Categoria -->
+	<div class="form-container" data-aos="flip-right"
+		data-aos-duration="4000">
+		<h2 data-aos="fade-right" data-aos-duration="1500">Modifica
+			autore</h2>
+
+		<form enctype="multipart/form-data" method="post"
+			th:action="@{/admin/autore/editAutore(id=${autore.idAutore})}"
+			th:object="${autoreDTO}">
+			<label for="nome" data-aos="fade-right" data-aos-duration="2000">Nome
+				autore</label> <input type="text" id="nome" name="nome" th:field="*{nome}"
+				placeholder="Es. Giacomo" data-aos="fade-up-right"
+				data-aos-duration="3000">
+			<p th:if="${#fields.hasErrors('nome')}"
+				th:classappend="${#fields.hasErrors('nome')} ? 'text-danger' : ''"
+				th:errorclass="text-danger" th:errors="*{nome}"></p>
+
+			<label for="cognome" data-aos="fade-right" data-aos-duration="2000">Cognome</label>
+			<input type="text" id="cognome" name="cognome" th:field="*{cognome}"
+				placeholder="Es. Leopardi" data-aos="fade-up-right"
+				data-aos-duration="3000">
+			<p th:if="${#fields.hasErrors('cognome')}"
+				th:classappend="${#fields.hasErrors('cognome')} ? 'text-danger' : ''"
+				th:errorclass="text-danger" th:errors="*{cognome}"></p>
+
+			<label for="dataDiNascita" data-aos="fade-right"
+				data-aos-duration="2000">Cambia Data di Nascita</label> <input
+				class="form-control" type="date" id="dataDiNascita"
+				th:field="*{dataDiNascita}" data-aos="fade-up-right"
+				data-aos-duration="3000">
+			<p th:if="${#fields.hasErrors('dataDiNascita')}"
+				th:errorclass="text-danger"
+				th:classappend="${#fields.hasErrors('dataDiNascita')} ? 'text-danger' : ''"
+				th:errors="*{dataDiNascita}"></p>
+
+			<label for="dataDiMorte" data-aos="fade-right"
+				data-aos-duration="2000">Cambia Data di Scomparsa</label> <input
+				class="form-control" type="date" id="dataDiMorte"
+				th:field="*{dataDiMorte}" data-aos="fade-up-right"
+				data-aos-duration="3000">
+			<p th:if="${#fields.hasErrors('dataDiMorte')}"
+				th:errorclass="text-danger"
+				th:classappend="${#fields.hasErrors('dataDiMorte')} ? 'text-danger' : ''"
+				th:errors="*{dataDiMorte}"></p>
+
+			<label for="nazionalità" data-aos="fade-right"
+				data-aos-duration="2000">Nazionalità</label> <input type="text"
+				id="nazionalità" name="nazionalità" th:field="*{nazionalità}"
+				placeholder="Es. Italiana" data-aos="fade-up-right"
+				data-aos-duration="3000">
+			<p th:if="${#fields.hasErrors('nazionalità')}"
+				th:classappend="${#fields.hasErrors('nazionalità')} ? 'text-danger' : ''"
+				th:errorclass="text-danger" th:errors="*{nazionalità}"></p>
+
+			<label for="informazioniAutore"> Informazioni Autore</label>
+			<p th:if="${#fields.hasErrors('informazioniAutore')}"
+				th:errorclass="text-danger" th:errors="${autoreDTO.informazioniAutore}"
+				data-aos="fade-up" data-aos-delay="500"></p>
+			<textarea id="informazioniAutore" th:field="*{informazioniAutore}"
+				placeholder="Inserisci una breve descrizione sulla vita dell'autore" rows="4"></textarea>
+
+			<label for="image" data-aos="fade-right" data-aos-duration="2000">Cambia
+				immagine</label> <input class="form-control" type="file" id="image"
+				th:field="*{image}" data-aos="fade-up-right"
+				data-aos-duration="3000">
+			<div class="form-text">Carica una nuova immagine (opzionale).
+				Formati supportati: .jpg, .png.</div>
+			<p th:if="${#fields.hasErrors('image')}" th:errorclass="text-danger"
+				th:classappend="${#fields.hasErrors('image')} ? 'text-danger' : ''"
+				th:errors="*{image}"></p>
+
+			<!-- Pulsanti -->
+			<div class="d-flex justify-content-between">
+				<a th:href="@{/admin/autore/visualizzaAutori}"
+					class="btn btn-secondary rounded-pill">Annulla</a>
+				<button type="submit" class="btn btn-primary rounded-pill">Salva
+					modifiche</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

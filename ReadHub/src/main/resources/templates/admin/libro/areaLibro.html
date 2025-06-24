@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gestione Libri</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin/libro/areaLibro.css">
+</head>
+
+<body>
+
+	<header data-aos="fade-down" data-aos-duration="1000">
+		<h1 class="logo">Gestione Libro</h1>
+		<a class="btn-signing" th:href="@{/utente/admin/home}">Torna alla
+			Home</a>
+	</header>
+
+	<div class="page-content">
+		<div class="alert-container">
+			<div th:if="${successMessage}" class="alert success"
+				th:text="${successMessage}"></div>
+			<div th:if="${errorMessage}" class="alert error"
+				th:text="${errorMessage}"></div>
+		</div>
+			<div class="top-bar" data-aos="fade-right" data-aos-delay="300">
+				<a class="btn-new-category" th:href="@{/admin/libro/creaLibro}">
+					<i class="fas fa-plus"></i> Nuova Libro
+				</a>
+			</div>
+		<table data-aos="fade-up" data-aos-duration="1000">
+
+			<thead>
+				<tr>
+					<th>ID Libro</th>
+					<th>Titolo</th>
+					<th>Categoria</th>
+					<th>Autori</th>
+					<th>Immagini</th>
+					<th>Azioni</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="libro : ${libri}" data-aos="fade-up"
+					data-aos-delay="100">
+					<td th:text="${libro.idLibro}"></td>
+					<td th:text="${libro.titolo}"></td>
+					<td th:text="${libro.categoria.getNomeCategoria()}"></td>
+					<td th:text="${libro.autori.size()}"></td>
+					<td th:text="${libro.immagini.size()}"></td>
+					<td>
+						<div class="actions">
+							<a th:href="@{/admin/libro/modificaLibro(id=${libro.idLibro})}"
+								class="btn btn-edit"> <i class="fas fa-edit"></i> Modifica
+							</a> <a th:href="@{/admin/libro/delete(id=${libro.idLibro})}"
+								class="btn btn-delete"> <i class="fas fa-trash"></i> Elimina
+							</a>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="top-bar" data-aos="fade-right" data-aos-delay="300">
+			<a class="btn-new-category" th:href="@{/admin/libro/creaLibro}">
+				<i class="fas fa-plus"></i> Nuova Libro
+			</a>
+		</div>
+	</div>
+
+	<!-- AOS -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			once : true,
+			easing : 'ease-in-out',
+			duration : 800,
+		});
+	</script>
+
+</body>
+</html>

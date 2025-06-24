@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Crea Nuovo Libro</title>
+<link rel="stylesheet" href="/css/admin/libro/creaLibro.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="admin-dashboard">
+
+	<header>
+		<h1 class="logo">Crea Nuovo Libro</h1>
+		<a class="btn-signing" th:href="@{/utente/admin/home}">Home</a>
+	</header>
+
+	<div class="form-container">
+		<form th:action="@{/admin/libro/creaLibro}" th:object="${libroDTO}"
+			method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="titolo">Titolo Libro</label>
+				<p th:if="${#fields.hasErrors('titolo')}" th:errorclass="text-danger" th:errors="*{titolo}"
+					data-aos="fade-up" data-aos-delay="500"></p>
+				<input type="text" id="titolo" th:field="*{titolo}"
+					placeholder="Inserisci il titolo" />
+			</div>
+			
+			<div class="form-group">
+				<label for="pubblicazione">Pubblicazione</label>
+				<p th:if="${#fields.hasErrors('pubblicazione')}"
+					th:errorclass="text-danger" th:errors="*{pubblicazione}"
+					data-aos="fade-up" data-aos-delay="500"></p>
+				<input type="text" id="pubblicazione" th:field="*{pubblicazione}"
+					placeholder="Inserisci l'anno di pubblicazione" />
+			</div>
+			
+			<div class="form-group">
+				<label for="introduzione">Introduzione</label>
+				<p th:if="${#fields.hasErrors('introduzione')}"
+					th:errorclass="text-danger" th:errors="*{introduzione}"
+					data-aos="fade-up" data-aos-delay="500"></p>
+				<input type="text" id="introduzione" th:field="*{introduzione}"
+					placeholder="Inserisci l'introduzione del libro" />
+			</div>
+
+			<div class="row mb-3">
+				<label class="col-sm-4 col-form-label" data-aos="fade-right"
+					data-aos-delay="400">Categoria</label>
+				<div class="col-sm-8">
+					<select class="form-control" name="categoria" id="categoria"
+						th:field="*{categoria}">
+						<option value="" disabled selected>Seleziona categoria</option>
+						<option th:each="categoria : ${categorie}"
+							th:value="${categoria.idCategoria}"
+							th:text="${categoria.nomeCategoria}"></option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<label class="col-sm-4 col-form-label" data-aos="fade-right"
+					data-aos-delay="400">Autori</label>
+				<div class="col-sm-8">
+					<select class="form-control" multiple name="autori" id="autori"
+						th:field="*{autori}">
+						<option th:each="autore : ${autori}" th:value="${autore.idAutore}"
+							th:text="${autore.nome + ' ' + autore.cognome}"></option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="image">Immagini</label>
+				<p th:if="${#fields.hasErrors('immagini')}"
+					th:errorclass="text-danger" th:errors="*{immagini}"
+					data-aos="fade-up" data-aos-delay="500"></p>
+
+				<input class="form-control" type="file" id="image" multiple
+					th:field="*{immagini}" data-aos="fade-left" data-aos-delay="400"
+					accept=".jpg,.png">
+
+				<div class="form-text" data-aos="fade-up" data-aos-delay="500">
+					Seleziona una o più immagini per la copertina del libro (formati
+					supportati: .jpg, .png).</div>
+			</div>
+
+			<button type="submit" class="submit-btn">
+				<i class="fas fa-save"></i> Crea Libro
+			</button>
+		</form>
+	</div>
+
+</body>
+</html>

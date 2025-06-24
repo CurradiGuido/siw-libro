@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Accedi - ComicVerse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Bangers&family=Lato&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="/css/login.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+<header class="auth-navbar" data-aos="fade-down">
+    <div class="nav-inner">
+      <a href="/" class="logo">ReadHub</a>
+      <a th:href="@{/}" class="home-link">🏠 Torna alla Home</a>
+    </div>
+  </header>
+	<div class="auth-container" data-aos="zoom-in">
+	<div class="alert-container">
+			<div th:if="${param.error}" class="alert error" data-aos="fade-down"
+				data-aos-duration="1500">
+				<strong>Credenziali Errate, riprova!</strong>
+			</div>
+		</div>
+
+		<h1>Accedi a ReadHub</h1>
+		<form th:action="@{/user/login}" method="post">
+			<input type="text" name="username" placeholder="Username" required data-aos="zoom-in" />
+			<input type="password" name="password" placeholder="Password"
+				required data-aos="zoom-in"/>
+			<button type="submit" data-aos="zoom-in">Entra</button>
+		</form>
+		<p class="auth-link">
+			Non hai un account? <a th:href="@{/utente/register}" data-aos="zoom-in">Registrati</a>
+		</p>
+		<a href="/oauth2/authorization/google">Login con Google</a>
+	</div>
+</body>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</html>

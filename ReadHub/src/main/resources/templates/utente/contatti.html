@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contattaci – ReadHub</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="/css/utente/contatti.css" />
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+	<header class="header">
+		<div class="nav-container">
+			<div class="logo" data-aos="flip-left" data-aos-delay="1100">📖 ReadHub</div>
+			<nav>
+				<a th:href="@{/}" data-aos="fade-up" data-aos-delay="500">Home</a>
+			</nav>
+		</div>
+	</header>
+
+	<div th:if="${success}" class="success-message" data-aos="fade-down"
+		data-aos-duration="1500">
+		<strong th:text="${success}"></strong>
+	</div>
+
+	<main class="contact-section" data-aos="flip-left" data-aos-delay="300">
+		<h1 data-aos="fade-down-right" data-aos-delay="400">Contattaci</h1>
+		<p data-aos="fade-down-right" data-aos-delay="450">Hai domande, suggerimenti o vuoi saperne di più? Compila il
+			modulo e ti risponderemo il prima possibile.</p>
+
+		<form class="contact-form" action="/send-message" method="POST">
+			<label for="name" data-aos="fade-right" data-aos-delay="500">Nome</label> <input type="text" id="name"
+				name="name" required data-aos="fade-right" data-aos-delay="600"/> <label for="email" data-aos="fade-right" data-aos-delay="600">Email</label>
+			    <input type="email" id="email" name="email" required  data-aos="fade-right" data-aos-delay="700"/> <label
+				for="message" data-aos="fade-right" data-aos-delay="800">Messaggio</label>
+			<textarea id="message" name="message" rows="4" required data-aos="fade-right" data-aos-delay="900"></textarea>
+
+			<button type="submit">Invia Messaggio</button>
+		</form>
+	</main>
+
+	<footer>
+		<p>© 2025 ReadHub — Condividi storie, emozioni e idee.</p>
+	</footer>
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			once : true,
+			duration : 800,
+			offset : 120
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap');
+
+body {
+  background: #fdfaf6;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 2rem;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #5e2d18;
+}
+
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .forum-main h1,
+  .forum-main .intro {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .thread-list .thread {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .thread h3 a {
+    font-size: 1rem;
+  }
+
+  .meta {
+    font-size: 0.85rem;
+  }
+}
+
+
+.forum-main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.forum-main h1 {
+  font-size: 2.5rem;
+  color: #7b3f00;
+  font-family: 'Playfair Display', serif;
+}
+
+.intro {
+  font-size: 1rem;
+  margin: 1rem 0 2rem;
+  color: #555;
+}
+
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.thread {
+  background: #fff;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.thread h3 a {
+  text-decoration: none;
+  color: #b85c38;
+}
+
+.thread h3 a:hover {
+  text-decoration: underline;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+.create-thread {
+  margin-top: 2rem;
+}
+
+.cta {
+  display: inline-block;
+  background: #b85c38;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #f2ece6;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}

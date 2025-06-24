@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Modifica Libro</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="/css/admin/libro/modificaLibro.css">
+</head>
+<body class="admin-dashboard">
+
+	<header>
+		<h1 class="logo">Modifica Libro</h1>
+		<a class="btn-signing" th:href="@{/utente/admin/home}">Home</a>
+	</header>
+
+	<!-- Form Modifica Categoria -->
+	<div class="form-container" data-aos="flip-right"
+		data-aos-duration="4000">
+		<h2 data-aos="fade-right" data-aos-duration="1500">Modifica libro</h2>
+
+		<form enctype="multipart/form-data" method="post"
+			th:action="@{/admin/libro/modificaLibro(id=${libro.idLibro})}"
+			th:object="${libroDTO}">
+
+			<label for="nome" data-aos="fade-right" data-aos-duration="2000">Titolo
+			</label> <input type="text" id="titolo" name="titolo" th:field="*{titolo}"
+				placeholder="Es. I promessi Sposi" data-aos="fade-up-right"
+				data-aos-duration="3000">
+			<p th:if="${#fields.hasErrors('titolo')}"
+				th:classappend="${#fields.hasErrors('titolo')} ? 'text-danger' : ''"
+				th:errorclass="text-danger" th:errors="*{titolo}"></p>
+				
+			<label for="nome" data-aos="fade-right" data-aos-duration="2000">Introduzione
+			</label> <input type="text" id="introduzione" name="introduzione" th:field="*{introduzione}"
+				data-aos="fade-up-right"
+				data-aos-duration="3000">
+			<p th:if="${#fields.hasErrors('introduzione')}"
+				th:classappend="${#fields.hasErrors('introduzione')} ? 'text-danger' : ''"
+				th:errorclass="text-danger" th:errors="*{introduzione}"></p>
+
+			<label for="categoria" data-aos="fade-right" data-aos-duration="2000">Categoria</label>
+			<select id="categoria" name="categoria" th:field="*{categoria}"
+				data-aos="fade-up-right" data-aos-duration="3000">
+				<option th:each="categoria : ${categorie}" 
+				    th:value="${categoria.idCategoria}"
+					th:text="${categoria.nomeCategoria}"></option>
+			</select>
+			<p th:if="${#fields.hasErrors('categoria')}"
+				th:classappend="${#fields.hasErrors('categoria')} ? 'text-danger' : ''"
+				th:errorclass="text-danger" th:errors="*{categoria}"></p>
+
+			<label for="autori" data-aos="fade-right" data-aos-duration="2000">Autori</label>
+			<select id="autori" name="autori" multiple th:field="*{autori}"
+				data-aos="fade-up-right" data-aos-duration="3000">
+				<option th:each="autore : ${autori}"
+					th:value="${autore.idAutore}"
+					th:text="${autore.nome} + ' ' + ${autore.cognome}"></option>
+			</select>
+			<p th:if="${#fields.hasErrors('autori')}"
+				th:classappend="${#fields.hasErrors('autori')} ? 'text-danger' : ''"
+				th:errorclass="text-danger" th:errors="*{autori}"></p>
+
+			<label for="pubblicazione" data-aos="fade-right"
+				data-aos-duration="2000">Pubblicazione</label> <input type="text"
+				id="pubblicazione" name="pubblicazione" th:field="*{pubblicazione}"
+				placeholder="Inserisci l'anno di pubblicazione..."
+				data-aos="fade-up-right" data-aos-duration="3000">
+			<p th:if="${#fields.hasErrors('pubblicazione')}"
+				th:classappend="${#fields.hasErrors('pubblicazione')} ? 'text-danger' : ''"
+				th:errorclass="text-danger" th:errors="*{pubblicazione}"></p>
+
+
+			<label for="image">Cambia Immagine</label>
+			<p th:if="${#fields.hasErrors('immagini')}"
+				th:errorclass="text-danger" th:errors="*{immagini}"
+				data-aos="fade-up" data-aos-delay="500"></p>
+
+			<input class="form-control" type="file" id="image" multiple
+				th:field="*{immagini}" data-aos="fade-left" data-aos-delay="400"
+				accept=".jpg,.png">
+
+			<div class="form-text" data-aos="fade-up" data-aos-delay="500">
+				Seleziona una o più immagini per la copertina del libro (formati
+				supportati: .jpg, .png).</div>
+
+
+			<!-- Pulsanti -->
+			<div class="d-flex justify-content-between">
+				<a th:href="@{/admin/libro/visualizzaLibri}"
+					class="btn btn-secondary rounded-pill">Annulla</a>
+				<button type="submit" class="btn btn-primary rounded-pill">Salva
+					modifiche</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

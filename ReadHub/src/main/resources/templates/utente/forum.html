@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forum Letterario – ReadHub</title>
+  <link rel="stylesheet" href="/css/utente/forum.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="header">
+      <div class="nav-container">
+        <div class="logo" data-aos="flip-left" data-aos-delay="1100">📖 ReadHub</div>
+        <nav>
+          <a th:href="@{/}" data-aos="fade-up" data-aos-delay="500">Home</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="forum-main" data-aos="fade-up">
+      <h1>Forum Letterario</h1>
+      <p class="intro">Partecipa a discussioni, lascia opinioni, confrontati con altri lettori su autori, generi e temi letterari.</p>
+
+      <div class="thread-list">
+        <div class="thread" data-aos="fade-up" data-aos-delay="100">
+          <h3><a href="#">📚 Qual è il miglior romanzo del 2024?</a></h3>
+          <p class="meta">Iniziato da <strong>mariella90</strong> • 24 risposte • Ultima: 2h fa</p>
+        </div>
+
+        <div class="thread" data-aos="fade-up" data-aos-delay="200">
+          <h3><a href="#">🔍 Libri gialli con protagonista femminile?</a></h3>
+          <p class="meta">Iniziato da <strong>andreadb</strong> • 12 risposte • Ultima: ieri</p>
+        </div>
+
+        <div class="thread" data-aos="fade-up" data-aos-delay="300">
+          <h3><a href="#">💭 La lettura come terapia: esperienze?</a></h3>
+          <p class="meta">Iniziato da <strong>lucilla23</strong> • 9 risposte • Ultima: 3 giorni fa</p>
+        </div>
+      </div>
+
+      <div class="create-thread">
+        <a href="#" class="cta">+ Crea nuova discussione</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 ReadHub — Condividi idee, racconti e opinioni.</p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

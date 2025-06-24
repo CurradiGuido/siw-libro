@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Registrati - ReadHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Bangers&family=Lato&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="/css/register.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+	rel="stylesheet">
+</head>
+<body>
+	<!-- Navbar -->
+	<header class="auth-header">
+		<div class="auth-nav-container">
+			<a href="/" class="auth-logo" data-aos="flip-left"
+				data-aos-delay="1100">ReadHub</a>
+			<nav class="auth-nav" data-aos="fade-up" data-aos-delay="400">
+				<a href="/" data-aos="fade-up" data-aos-delay="500">Home</a> <a
+					href="/login">Login</a>
+			</nav>
+		</div>
+	</header>
+	<div class="alert-container">
+		<div th:if="${successMessage}" class="alert success"
+			th:text="${successMessage}"></div>
+		<div th:if="${errorMessage}" class="alert error"
+			th:text="${errorMessage}"></div>
+	</div>
+
+	<!-- Contenuto Registrazione -->
+	<div class="auth-container" data-aos="fade-up" data-aos-delay="200">
+		<h1>Registrati su ReadHub</h1>
+		<form class="auth-form" enctype="multipart/form-data"
+			th:action="@{/utente/register}" method="post"
+			th:object="${utenteDTO}">
+
+			<div class="form-group" data-aos="fade-up" data-aos-delay="400">
+				<label for="nome">Nome</label> <input type="text" id="nome"
+					th:field="*{nome}" />
+				<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+					th:errorclass="text-danger"></p>
+			</div>
+
+			<div class="form-group" data-aos="fade-up" data-aos-delay="500">
+				<label for="cognome">Cognome</label> <input type="text" id="cognome"
+					th:field="*{cognome}" />
+				<p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"
+					th:errorclass="text-danger"></p>
+			</div>
+
+			<div class="form-group" data-aos="fade-up" data-aos-delay="600">
+				<label for="email">Email</label> <input type="text" id="email"
+					th:field="*{email}" />
+				<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+					th:errorclass="text-danger"></p>
+			</div>
+
+			<div class="form-group" data-aos="fade-up" data-aos-delay="700">
+				<label for="username">Username</label> <input type="text"
+					id="username" th:field="*{username}" />
+				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+					th:errorclass="text-danger"></p>
+			</div>
+
+			<div class="form-group" data-aos="fade-up" data-aos-delay="800">
+				<label for="image">Immagine</label> <input type="file" id="image"
+					th:field="*{image}" class="form-control" />
+				<div class="form-text">Seleziona un'immagine (formati
+					supportati: .jpg, .png).</div>
+				<p th:if="${#fields.hasErrors('image')}" th:errors="*{image}"
+					th:errorclass="text-danger"></p>
+			</div>
+
+			<div class="form-group" data-aos="fade-up" data-aos-delay="900">
+				<label for="password">Password</label> <input type="password"
+					id="password" th:field="*{password}" />
+				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+					th:errorclass="text-danger"></p>
+			</div>
+
+			<div class="form-group" data-aos="fade-up" data-aos-delay="1000">
+				<label for="confirmPassword">Conferma Password</label> <input
+					type="password" id="confirmPassword" th:field="*{confirmPassword}" />
+				<p th:if="${#fields.hasErrors('confirmPassword')}"
+					th:errors="*{confirmPassword}" th:errorclass="text-danger"></p>
+			</div>
+
+			<button type="submit" class="auth-button" data-aos="fade-up"
+				data-aos-delay="1100">Registrati</button>
+		</form>
+	</div>
+
+	<footer class="auth-footer"> © 2025 ComicVerse. Tutti i
+		diritti riservati. </footer>
+
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fdfaf6;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 2rem;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #5e2d18;
+}
+
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Main */
+.forum-main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  flex: 1;
+}
+
+.forum-main h1 {
+  font-size: 2.5rem;
+  color: #7b3f00;
+  font-family: 'Playfair Display', serif;
+}
+
+.intro {
+  font-size: 1rem;
+  margin: 1rem 0 2rem;
+  color: #555;
+}
+
+.sorting-form {
+  margin-bottom: 2rem;
+}
+
+.sorting-form select {
+  margin-left: 0.5rem;
+  padding: 0.4rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Recensioni */
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.thread {
+  background: #fff;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 0.8rem;
+}
+
+.star-rating.top {
+  font-size: 1.3rem;
+  color: #ffb703;
+  margin-bottom: 0.4rem;
+}
+
+.star-rating .empty {
+  color: #ccc;
+}
+
+.review-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: #5e2d18;
+  font-family: 'Playfair Display', serif;
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #f2ece6;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-container .logo {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  nav a {
+    display: block;
+    margin: 5px 0;
+    font-size: 16px;
+  }
+
+  .forum-main {
+    padding: 15px;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .intro {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .sorting-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .sorting-form select {
+    width: 80%;
+    padding: 6px;
+    font-size: 15px;
+  }
+
+  .thread {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 15px;
+  }
+
+  .review-title {
+    font-size: 17px;
+    margin-top: 10px;
+  }
+
+  .star-rating.top {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .meta {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  footer {
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+  }
+}
+
