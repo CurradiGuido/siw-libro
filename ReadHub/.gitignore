@@ -21,9 +21,9 @@ target/
 
 # Esclude tutti i file nella cartella log
 logs/
-*.log 
+*.logs/ 
 
-*.drawio
+*.drawio.bkp
 
 # Esclude il file Spring boot configuration
 /src/main/resources/application.properties
