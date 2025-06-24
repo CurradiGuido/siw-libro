@@ -140,3 +140,20 @@ Scelte progettuali rilevanti:
 | Libro_Autore | idAutore | Autore | idAutore | RESTRICT | Evito l’eliminazione dell’autore se è ancora associato a libri | CASCADE |
 | Recensione | IdLibro | Libro | idLibro | CASCADE | Se elimino un libro, spariscono le recensioni relative | CASCADE |
 | Recensione | idUtente | Utente | idUtente | CASCADE | Se elimino l’utente, spariscono le sue recensioni | CASCADE |
+
+**Tecnologie Utilizzate**
+- Springboot: Framework base per l'avvio e la configurazione dell'applicazione Spring;
+- Spring Web: Gestisce le richieste HTTP;
+- Spring Data JPA: Facilita l'interazione con il database tramite repository e query automatiche;
+- PostgreSQL: Sistema di gestione di database relazionali utilizzato per la persistenza dei dati;
+- HTML: Utilizzato per strutturare le pagine web dell'applicazione;
+- CSS: Responsabile dello stile e della presentazione visiva dell'interfaccia utente;
+- Thymeleaf: Motore di template per integrare dati dinamici nelle pagine HTML lato server;
+- Spring Security: Fornisce l'autenticazione e autorizzazione per proteggere l'applicazione;
+- Oauth2: Permette l'autenticazione tramite provider esterni come Google;
+- Jasypt: Cifra credenziali sensibili nei file di configurazione per una maggiore sicurrezza;
+- Spring Email: Gestisce l'invio di email dall'applicazione;
+- LogBack: Sistema di logging per tracciare eventi e accessi all'applicazione;
+- Validation: Valida i dati inseriti dagli utenti nei form per garantirne correttezza e integrità
+- Data Transfer Object (DTO): Oggetti utilizzati per trasferire dati tra frontend e backend in modo sicuro e strutturato;
+- Spring DevTools: Offre funzionalità utili in fase di sviluppo come il reload automatico e live refresh;
